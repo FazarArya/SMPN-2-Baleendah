@@ -14,9 +14,35 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('siswa.index', compact('siswa'));
+        return view('siswa.data-siswa', compact('siswa'));
     }
+    public function showInputForm()
+    {
+        return view('siswa.input-data');
+    }
+    public function storeData(Request $request)
+    {
+        $validatedData = $request->validate([
+            'NISN' => 'required|string',
+            'namaLengkap' => 'required|string',
+            'namaPanggilan' => 'nullable|string',
+            'jenisKelamin' => 'required|string',
+            'tempatLahir' => 'required|string',
+            'tanggalLahir' => 'required|date',
+            'agama' => 'required|string',
+            'kewarganegaraan' => 'required|string',
+            'anakKe' => 'nullable|integer',
+            'saudaraKandung' => 'nullable|integer',
+            'saudaraTiri' => 'nullable|integer',
+            'saudaraAngkat' => 'nullable|integer',
+            'yatimPiatu' => 'required|string',
+            'bahasaDirumah' => 'nullable|string',
+        ]);
 
+        Siswa::create($validatedData);
+
+        return back()->with('success', 'Data siswa berhasil disimpan!');
+    }
     public function dataSiswa(Request $request)
     {
         $query = Siswa::query();
@@ -29,13 +55,13 @@ class SiswaController extends Controller
 
         $siswa = $query->paginate(10);
 
-        return view('siswa.index', compact('siswa')); // Adjust view path
+        return view('siswa.data-siswa', compact('siswa')); // Adjust view path
     }
 
     public function show($siswaID)
     {
         $siswa = Siswa::findOrFail($siswaID);
-        return view('siswa.show', compact('siswa')); // Adjust view path
+        return view('siswa.detail-siswa', compact('siswa')); // Adjust view path
     }
 
     public function edit($siswaID)

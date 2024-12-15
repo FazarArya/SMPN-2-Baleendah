@@ -36,6 +36,8 @@ Route::middleware(['auth', 'role:operator'])->group(function () {
 
 Route::middleware(['auth', 'role:staff'])->group(function () {
     Route::get('/staff', [UserController::class, 'staff'])->name('staff');
+    Route::get('/input-data', [SiswaController::class, 'showInputForm'])->name('siswa.showInputForm');
+    Route::post('/input-data', [SiswaController::class, 'storeData'])->name('siswa.storeData');
     Route::get('/siswa/{siswaID}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{siswaID}', [SiswaController::class, 'update'])->name('siswa.update');
     Route::delete('/siswa/{siswaID}', [SiswaController::class, 'destroy'])->name('siswa.destroy');

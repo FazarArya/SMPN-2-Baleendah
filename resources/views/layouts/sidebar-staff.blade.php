@@ -48,24 +48,10 @@
                 </a>
             </li>
             <li>
-                <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 {{ request()->is('input-data-siswa*') ? 'bg-gray-100' : '' }}" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13 21V23H11V21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H9C10.1947 3 11.2671 3.52375 12 4.35418C12.7329 3.52375 13.8053 3 15 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H13ZM20 19V5H15C13.8954 5 13 5.89543 13 7V19H20ZM11 19V7C11 5.89543 10.1046 5 9 5H4V19H11Z"></path></svg>
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Input Data Siswa</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/input-data-siswa/data-pribadi" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('input-data-siswa/data-pribadi') ? 'bg-gray-100' : '' }}">Data Pribadi</a>
-                        </li>
-                        <li>
-                            <a href="/input-data-siswa/data-ayah-ibu" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('input-data-siswa/data-ayah-ibu') ? 'bg-gray-100' : '' }}">Data Ayah & Ibu Kandung</a>
-                        </li>
-                        <li>
-                            <a href="/input-data-siswa/data-wali" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 {{ request()->is('input-data-siswa/data-wali') ? 'bg-gray-100' : '' }}">Data Wali</a>
-                        </li>
-                </ul>
+                <a href="/input-data" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('input-data') ? 'bg-gray-100' : '' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13 21V23H11V21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H9C10.1947 3 11.2671 3.52375 12 4.35418C12.7329 3.52375 13.8053 3 15 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H13ZM20 19V5H15C13.8954 5 13 5.89543 13 7V19H20ZM11 19V7C11 5.89543 10.1046 5 9 5H4V19H11Z"></path></svg>
+                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Input Data Siswa</span>
+                </a>
             </li>
             <li>
                 <a href="/backup-data" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group {{ request()->is('backup-data') ? 'bg-gray-100' : '' }}">
