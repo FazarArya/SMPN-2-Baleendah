@@ -15,6 +15,9 @@
             letter-spacing: 0em;
         }
     </style>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
 <body class="bg-gray-100">
@@ -23,13 +26,10 @@
     @auth
         @if(Auth::user()->role == 'admin')
             @include('layouts.sidebar-admin')
-            @include('layouts.navbar')
         @elseif(Auth::user()->role == 'operator')
             @include('layouts.sidebar-operator')
-            @include('layouts.navbar')
         @elseif(Auth::user()->role == 'staff')
             @include('layouts.sidebar-staff')
-            @include('layouts.navbar')
         @endif
 
         <!-- Main Content Area -->
