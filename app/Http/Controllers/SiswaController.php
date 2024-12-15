@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use Illuminate\Support\Facades\Response;
 
 class SiswaController extends Controller
 {
@@ -40,7 +41,7 @@ class SiswaController extends Controller
     public function edit($siswaID)
     {
         $siswa = Siswa::findOrFail($siswaID);
-        return view('siswa.edit.siswa', compact('siswa')); // Adjust view path
+        return view('siswa.edit-siswa', compact('siswa')); // Adjust view path
     }
 
     public function update(Request $request, $id)
@@ -68,7 +69,29 @@ class SiswaController extends Controller
 
         return back()->with('success', 'Data berhasil diperbarui!');
     }
+    public function showBackup()
+    {
+        return view('siswa.backup');
+    }
+    public function downloadBackup()
+    {
+         // Retrieve all student data
+         $siswa = Siswa::all();
 
+         // Convert the data to JSON
+         $jsonSiswa = $siswa->toJson(JSON_PRETTY_PRINT);
+ 
+         // Create a filename for the backup
+         $fileName = 'backup_data_' . date('Y-m-d_H-i-s') . '.json';
+ 
+         // Create a response with the JSON data as a download
+         return Response::streamDownload(function() use ($jsonSiswa) {
+             echo $jsonSiswa;
+         }, $fileName, [
+             'Content-Type' => 'application/json',
+             'Content-Disposition' => 'attachment; filename="' . $fileName . '"',
+         ]);
+    }
     public function destroy($siswaID)
     {
         $siswa = Siswa::findOrFail($siswaID);

@@ -35,6 +35,7 @@ Route::middleware(['auth', 'role:operator'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:staff'])->group(function () {
+    Route::get('/staff', [UserController::class, 'staff'])->name('staff');
     Route::get('/siswa/{siswaID}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{siswaID}', [SiswaController::class, 'update'])->name('siswa.update');
     Route::delete('/siswa/{siswaID}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
@@ -42,6 +43,8 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
     // For index and show, no changes needed, just update view paths if necessary
     Route::get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
     Route::get('/siswa/{siswaID}/show', [SiswaController::class, 'show'])->name('siswa.show');
+    Route::get('/backup-data', [SiswaController::class, 'showBackup'])->name('siswa.showBackup');
+    Route::get('/download-backup', [SiswaController::class, 'downloadBackup'])->name('siswa.downloadBackup');
 });
 
 

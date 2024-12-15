@@ -24,7 +24,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
                     <img src="{{ asset('build/assets/img/Logo BUKIS.png') }}" alt="Logo BUKIS" class="h-8 w-10 mr-5">
-                    <a href="#" class="text-blue-600 text-2xl font-bold">BUKIS</a>
+                    <a href="#" class="text-white text-2xl font-bold">BUKIS</a>
                 </div>
                 <div>
                     <a href="/login" class="px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:bg-blue-700 transition">Masuk</a>

@@ -4,8 +4,9 @@
 <div class="flex h-screen">
     <!-- Left Section -->
     <div class="w-1/2 bg-gradient-to-b from-green-600 to-green-200 relative">
-        <div class="absolute top-6 left-6">
-            <img src="{{ asset('build/assets/img/Logo BUKIS.png') }}" alt="Logo"class="h-8 w-10">
+        <div class="absolute top-8 left-8 flex items-center">
+            <img src="{{ asset('build/assets/img/Logo BUKIS.png') }}" alt="Logo BUKIS" class="h-8 w-10 mr-3">
+            <a href="#" class="text-white text-2xl font-bold">BUKIS</a>
         </div>
         <div class="flex items-center justify-center h-full">
             <h1 class="text-white text-5xl font-bold">Selamat Datang!</h1>
