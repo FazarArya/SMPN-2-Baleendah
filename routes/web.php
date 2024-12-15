@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SiswaController;
@@ -11,20 +12,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('landing');
 });
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/regis', function () {
-    return view('regis');
-});
-Route::get('/landing', function () {
-    return view('landing');
-});
-Route::get('/dashboard', function () {
-    return view('operator.dashboard');
-});
-=======
+// Register routes
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 
 // Authentication Routes
 Route::middleware('guest')->group(function () {
@@ -57,6 +47,3 @@ Route::middleware(['auth', 'role:staff'])->group(function () {
 
 // Data Siswa Page (Require Authentication)
 // Route::middleware(['auth'])->get('/data-siswa', [SiswaController::class, 'dataSiswa'])->name('data-siswa');
-
-
->>>>>>> af214a69e3065f34d851dd63af327f7a204a71d8

@@ -1,13 +1,23 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'BUKIS Dashboard')</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0em;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-[#a4b96b] to-[#f4f4f4]">
+
+<body class="bg-gray-100">
 
     <!-- Show Sidebar and Navbar Only for Authenticated Users -->
     @auth
@@ -23,14 +33,20 @@
         @endif
 
         <!-- Main Content Area -->
-        <div class="ml-[249px] mt-[75px] p-6">
-            @yield('content')
+        <div class="flex h-screen">
+            <main class="flex-1 p-6">
+                @yield('content')
+            </main>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     @endauth
 
     <!-- Landing Page (Guest Users) -->
     @guest
-        @yield('content')
+        <div>
+            @yield('content')
+        </div>
     @endguest
 </body>
+
 </html>
